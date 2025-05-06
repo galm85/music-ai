@@ -24,7 +24,7 @@ async function generateImage(openai,playlist) {
 
   function renderPrompt(playlist){
     let output = ''
-    playlist.foreach(song =>{
+    playlist.forEach(song =>{
         output += `${song.name} by ${song.artist},`
     })
     return output

@@ -6,7 +6,7 @@ async function generateImage(openai,playlist) {
     try {
       const response = await openai.images.generate({
         model: "dall-e-3",
-        prompt: `generate an image without words in it, according to the songs titles, genre and vibes of these songs: ${songs}`,
+        prompt: `generate a single image only  without words in it, according to the songs titles, genre and vibes of these songs combined: ${songs}`,
         n: 1,
         size: "1024x1024",
       });

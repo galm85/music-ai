@@ -25,8 +25,6 @@ app.get('/openai/:id',(req,res,next)=>{
    const playlist = Server.playlists.find(playlist => playlist.id == playlistId)
    if(playlist ){
         Utils.generateImage(openai,playlist.songs).then(data => res.json(data));
-
-
    }else{
     res.json({success:false,image:''})
    }

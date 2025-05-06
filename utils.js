@@ -1,12 +1,12 @@
 
 
 async function generateImage(openai,playlist) {
-    // const songs = renderPrompt(playlist);
+    const songs = renderPrompt(playlist);
 
     try {
       const response = await openai.images.generate({
         model: "dall-e-3",
-        prompt: `generate an image without words in it, according to the songs titles, genre and vibes of these songs: alone - marshmello, shake it off - taylor swift, master of puppets - metallica`,
+        prompt: `generate an image without words in it, according to the songs titles, genre and vibes of these songs: ${songs}`,
         n: 1,
         size: "1024x1024",
       });
@@ -25,7 +25,7 @@ async function generateImage(openai,playlist) {
   function renderPrompt(playlist){
     let output = ''
     playlist.foreach(song =>{
-        output += `${song.name} by ${song.artist}`
+        output += `${song.name} by ${song.artist},`
     })
     return output
   }
